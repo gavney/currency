@@ -16,7 +16,7 @@
         android:layout_height="99dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/radius"
-        android:backgroundTint="#6600ff"
+        android:backgroundTint="#009688"
         android:minHeight="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView1"
@@ -33,7 +33,7 @@
         android:layout_width="263dp"
         android:layout_height="99dp"
         android:background="@drawable/radius"
-        android:backgroundTint="#1919e6"
+        android:backgroundTint="#00BCD4"
         android:minHeight="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
@@ -47,7 +47,7 @@
         android:layout_width="389dp"
         android:layout_height="154dp"
         android:background="@drawable/radius"
-        android:backgroundTint="#455a64"
+        android:backgroundTint="#66BB6A"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
         android:text="@string/_0"
@@ -72,7 +72,7 @@
         app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.686" />
+        app:layout_constraintVertical_bias="0.709" />
 
     <TextView
         android:id="@+id/textView1"
