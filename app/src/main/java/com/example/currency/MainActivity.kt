@@ -1,8 +1,10 @@
 package com.example.currency
 
 import android.os.Bundle
+import android.view.Window
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.currency.api.CurrencyApp
 import com.example.currency.data.Response
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,6 +26,8 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.hide()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         spinnerCreate()
 
         button.setOnClickListener {
