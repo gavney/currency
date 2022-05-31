@@ -3,6 +3,10 @@
     <string name="convert">convert</string>
     <string name="_0">0</string>
     <string name="currency">currency</string>
+    <string name="last_value">last value:</string>
+    <string name="relevant">Relevant:</string>
+    <string name="last_value1">Last value:</string>
+    <string name="base">Base:</string>
     <string-array name="currencyName">
         <item>FJD</item>
         <item>MXN</item>
