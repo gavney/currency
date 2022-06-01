@@ -7,6 +7,7 @@
     <string name="relevant">Relevant:</string>
     <string name="last_value1">Last value:</string>
     <string name="base">Base:</string>
+    <string name="_7">7</string>
     <string-array name="currencyName">
         <item>FJD</item>
         <item>MXN</item>
