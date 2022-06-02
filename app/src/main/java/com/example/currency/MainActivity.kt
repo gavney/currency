@@ -32,23 +32,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         val manager = supportFragmentManager
-        var stringValue = ""
-
-        buttonBase.setOnClickListener {
-            val myDialogFragment = MyDialogFragment(true)
-            myDialogFragment.show(manager, "myDialog")
-            Log.d("DFGDFGGFD", "JAAHHAHAUHFIUHFDIW")
-        }
-
-        buttonCurrency.setOnClickListener {
-            val myDialogFragment = MyDialogFragment()
-            myDialogFragment.show(manager, "myDialog")
-        }
-
-        fun appendValue(num:String){
-            stringValue+=num
-            textViewBase.text = stringValue
-        }
 
         button1.setOnClickListener {appendValue("1")}
         button2.setOnClickListener {appendValue("2")}
@@ -60,24 +43,55 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         button8.setOnClickListener {appendValue("8")}
         button9.setOnClickListener {appendValue("9")}
         button0.setOnClickListener {appendValue("0")}
+        buttonDelete.setOnClickListener { appendValue("", true) }
 
+        buttonConvert.setOnClickListener {
+            service.getRates(buttonBase.text.toString(), "sandbox_c9farriad3iampagd6cg")
+                .enqueue(
+                    object : retrofit2.Callback<Response> {
+                        override fun onResponse(
+                            call: Call<Response>,
+                            response: retrofit2.Response<Response>
+                        ) {
+                            var result =
+                                response.body()?.quote?.get(buttonCurrency.text.toString())?.toDouble()
+                                    ?.times(textViewBase.text.toString().toDouble())
+                                textViewValue.text = result.toString()
+                        }
+
+                        override fun onFailure(call: Call<Response>, t: Throwable) {
+                        }
+                    }
+                )
+        }
+//
+//        buttonBase.setOnClickListener {
+//            val myDialogFragment = MyDialogFragment(true)
+//            myDialogFragment.show(manager, "myDialog")
+//            Log.d("DFGDFGGFD", "JAAHHAHAUHFIUHFDIW")
+//        }
+//
+//        buttonCurrency.setOnClickListener {
+//            val myDialogFragment = MyDialogFragment()
+//            myDialogFragment.show(manager, "myDialog")
+//        }
 //
 //        button.setOnClickListener {
-//            service.getRates(spinnerBase.selectedItem.toString(), "sandbox_c9farriad3iampagd6cg")
-//                .enqueue(
-//                    object : retrofit2.Callback<Response> {
-//                        override fun onResponse(
-//                            call: Call<Response>,
-//                            response: retrofit2.Response<Response>
-//                        ) {
-//                            textView.text =
-//                                response.body()?.quote?.get(spinner.selectedItem.toString())
-//                        }
 //
-//                        override fun onFailure(call: Call<Response>, t: Throwable) {
-//                        }
-//                    }
-//                )
 //        }
     }
+    private fun appendValue(string:String, isClear:Boolean = false){
+        if(isClear && textViewBase.text.isNotEmpty()){
+            textViewBase.text = textViewBase.text.substring(0, textViewBase.text.length-1)
+        }
+        if (textViewBase.text.isNotEmpty() && textViewBase.text[0] == '0'){
+            textViewBase.text = ""
+        }
+        textViewBase.append(string)
+
+        if (textViewBase.text.isEmpty()){
+            textViewBase.text = "0"
+        }
+    }
 }
+
