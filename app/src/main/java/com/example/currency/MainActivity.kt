@@ -1,12 +1,15 @@
 package com.example.currency
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.currency.api.CurrencyApp
 import com.example.currency.data.Response
+import com.example.currency.selecter.MyDialogFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -25,10 +28,39 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//
-//        supportActionBar?.hide()
-//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//        spinnerCreate()
+        supportActionBar?.hide()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+        val manager = supportFragmentManager
+        var stringValue = ""
+
+        buttonBase.setOnClickListener {
+            val myDialogFragment = MyDialogFragment(true)
+            myDialogFragment.show(manager, "myDialog")
+            Log.d("DFGDFGGFD", "JAAHHAHAUHFIUHFDIW")
+        }
+
+        buttonCurrency.setOnClickListener {
+            val myDialogFragment = MyDialogFragment()
+            myDialogFragment.show(manager, "myDialog")
+        }
+
+        fun appendValue(num:String){
+            stringValue+=num
+            textViewBase.text = stringValue
+        }
+
+        button1.setOnClickListener {appendValue("1")}
+        button2.setOnClickListener {appendValue("2")}
+        button3.setOnClickListener {appendValue("3")}
+        button4.setOnClickListener {appendValue("4")}
+        button5.setOnClickListener {appendValue("5")}
+        button6.setOnClickListener {appendValue("6")}
+        button7.setOnClickListener {appendValue("7")}
+        button8.setOnClickListener {appendValue("8")}
+        button9.setOnClickListener {appendValue("9")}
+        button0.setOnClickListener {appendValue("0")}
+
 //
 //        button.setOnClickListener {
 //            service.getRates(spinnerBase.selectedItem.toString(), "sandbox_c9farriad3iampagd6cg")
@@ -48,17 +80,4 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 //                )
 //        }
     }
-//
-//    private fun spinnerCreate() {
-//        val adapter = ArrayAdapter(
-//            this,
-//            android.R.layout.simple_spinner_item,
-//            resources.getStringArray(R.array.currencyName)
-//        )
-//        spinner.adapter = adapter
-//        spinnerBase.adapter = adapter
-//
-//        spinner.setSelection(resources.getStringArray(R.array.currencyName).indexOf("RUB"))
-//        spinnerBase.setSelection(resources.getStringArray(R.array.currencyName).indexOf("USD"))
-//    }
 }

@@ -8,6 +8,19 @@
     <string name="last_value1">Last value:</string>
     <string name="base">Base:</string>
     <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="del">del</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="dot">.</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_convert">=</string>
+    <string name="usd">USD</string>
+    <string name="rub">RUB</string>
     <string-array name="currencyName">
         <item>FJD</item>
         <item>MXN</item>
