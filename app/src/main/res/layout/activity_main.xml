@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="398dp"
-        android:layout_height="182dp"
+        android:layout_height="195dp"
         android:layout_marginEnd="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.985">
+        app:layout_constraintVertical_bias="1.0">
 
         <TableRow
             android:layout_width="match_parent"
@@ -53,6 +54,52 @@
                 android:text="@string/_3" />
 
             <Button
+                android:id="@+id/button0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:width="60dp"
+                android:height="60dp"
+                android:backgroundTint="@color/dark"
+                android:text="@string/_0" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:width="60dp"
+                android:height="60dp"
+                android:backgroundTint="@color/dark"
+                android:text="@string/_4" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:width="60dp"
+                android:height="60dp"
+                android:backgroundTint="@color/dark"
+                android:text="@string/_5" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:width="60dp"
+                android:height="60dp"
+                android:backgroundTint="@color/dark"
+                android:text="@string/_6" />
+
+            <Button
                 android:id="@+id/buttonConvert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,6 +109,7 @@
                 android:backgroundTint="@color/dark"
                 android:text="@string/_convert"
                 android:textColor="@color/text" />
+
         </TableRow>
 
         <TableRow
@@ -109,63 +157,19 @@
                 android:text="@string/del" />
         </TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:width="60dp"
-                android:height="60dp"
-                android:backgroundTint="@color/dark"
-                android:text="@string/_4" />
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:width="60dp"
-                android:height="60dp"
-                android:backgroundTint="@color/dark"
-                android:text="@string/_5" />
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:width="60dp"
-                android:height="60dp"
-                android:backgroundTint="@color/dark"
-                android:text="@string/_6" />
-
-            <Button
-                android:id="@+id/button0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:width="60dp"
-                android:height="60dp"
-                android:backgroundTint="@color/dark"
-                android:text="@string/dot" />
-        </TableRow>
-
     </TableLayout>
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
-        android:layout_width="match_parent"
-        android:layout_height="227dp"
+        android:layout_width="396dp"
+        android:layout_height="270dp"
         android:background="@drawable/radius"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.609" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -186,6 +190,7 @@
             tools:ignore="RtlSymmetry">
 
             <Button
+                android:textSize="20sp"
                 android:id="@+id/buttonBase"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -193,23 +198,22 @@
                 android:text="@string/usd" />
 
             <HorizontalScrollView
-                android:layout_width="300dp"
+                android:layout_width="295dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/textViewBase"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="false"
                         android:layout_marginTop="15dp"
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
+                        android:singleLine="false"
                         android:text="@string/_0"
                         android:textColor="@color/text"
                         android:textSize="50sp"
@@ -245,16 +249,20 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/button"
-                android:text="@string/rub" />
+                android:text="@string/rub"
+                android:textColorHint="#5B2020"
+                android:textSize="20sp"
+                app:iconTint="#9F9595"
+                app:rippleColor="#794444" />
 
             <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_width="310dp"
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/textViewValue"
@@ -262,7 +270,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
                         android:paddingStart="10dp"
-                        android:text="@string/_0"
+                        android:text="@string/_0_0"
                         android:textColor="@color/text"
                         android:textSize="50sp" />
                 </LinearLayout>

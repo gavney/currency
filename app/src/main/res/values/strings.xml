@@ -21,6 +21,7 @@
     <string name="_convert">=</string>
     <string name="usd">USD</string>
     <string name="rub">RUB</string>
+    <string name="_0_0">0.0</string>
     <string-array name="currencyName">
         <item>FJD</item>
         <item>MXN</item>
