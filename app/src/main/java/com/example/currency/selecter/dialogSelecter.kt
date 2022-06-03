@@ -22,7 +22,9 @@ class MyDialogFragment(private val base: Boolean = false) : DialogFragment() {
             }
                 .setPositiveButton(
                     "select"
-                ) { _, item -> }
+                ) { _, item ->
+                    (activity as MainActivity?)?.updateGraph()
+                }
 
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")

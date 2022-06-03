@@ -1,13 +1,14 @@
 package com.example.currency
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.currency.api.CurrencyApp
 import com.example.currency.data.Response
 import com.example.currency.selecter.MyDialogFragment
-import com.jjoe64.graphview.series.BarGraphSeries
 import com.jjoe64.graphview.series.DataPoint
+import com.jjoe64.graphview.series.LineGraphSeries
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,6 +19,7 @@ import kotlin.coroutines.CoroutineContext
 class MainActivity : AppCompatActivity(), CoroutineScope {
     private lateinit var job: Job
     private val service = CurrencyApp.create()
+    private var currencyData: HashMap<Double, Double> = hashMapOf()
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
@@ -62,6 +64,10 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             myDialogFragment.show(manager, "myDialog")
         }
 
+        graph.setOnClickListener{
+            makeGraph()
+        }
+
         button1.setOnClickListener { appendValue("1") }
         button2.setOnClickListener { appendValue("2") }
         button3.setOnClickListener { appendValue("3") }
@@ -100,14 +106,43 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         }
     }
 
-//    fun updateGraph(array: List<String>) {
-//        var arrayData = arrayOf<DataPoint>()
-//
-//        (0..array.size - 2).forEach { i ->
-//            arrayData += DataPoint(i.toDouble(), array[i].toDouble())
-//        }
-//
-//        graph.addSeries(BarGraphSeries(arrayData))
-//    }
+    fun updateGraph() {
+        currencyData.clear()
+
+        for (i in 2016..2022) {
+            for (j in 1..6) {
+                service.getRates(buttonBase.text.toString(),"sandbox_c9farriad3iampagd6cg",
+                    date = "$i-0$j-01")
+                    .enqueue( object : retrofit2.Callback<Response> {
+                            override fun onResponse(
+                                call: Call<Response>,
+                                response: retrofit2.Response<Response>
+                            ) {
+                                val result =
+                                    response.body()?.quote?.get(buttonCurrency.text.toString())
+                                if (result != null) {
+                                    currencyData["$i.$j".toDouble()] = result.toDouble()
+                                }
+                            }
+
+                            override fun onFailure(call: Call<Response>, t: Throwable) {
+                        }
+                    }
+                )
+            }
+        }
+    }
+    private fun makeGraph(){
+        val currencyDataSorted = currencyData.toSortedMap()
+        var arrayDataPoint = arrayOf<DataPoint>()
+        graph.series.clear()
+
+        for (i in 0 until currencyDataSorted.size){
+            arrayDataPoint+=DataPoint(currencyDataSorted.keys.toList()[i].toDouble(),currencyDataSorted.values.toList()[i].toDouble())
+        }
+        graph.addSeries(LineGraphSeries(arrayDataPoint))
+    }
+
+
 }
 
