@@ -100,15 +100,14 @@
                 android:text="@string/_6" />
 
             <Button
-                android:id="@+id/buttonConvert"
+                android:id="@+id/buttonDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:width="60dp"
                 android:height="60dp"
                 android:backgroundTint="@color/dark"
-                android:text="@string/_convert"
-                android:textColor="@color/text" />
+                android:text="@string/del" />
 
         </TableRow>
 
@@ -147,37 +146,39 @@
                 android:text="@string/_9" />
 
             <Button
-                android:id="@+id/buttonDelete"
+                android:id="@+id/buttonConvert"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:width="60dp"
                 android:height="60dp"
                 android:backgroundTint="@color/dark"
-                android:text="@string/del" />
+                android:text="@string/_convert"
+                android:textColor="@color/text" />
+
         </TableRow>
 
     </TableLayout>
 
     <com.jjoe64.graphview.GraphView
         android:id="@+id/graph"
-        android:layout_width="396dp"
-        android:layout_height="270dp"
-        android:background="@drawable/radius"
-        app:layout_constraintBottom_toBottomOf="@+id/tableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
         app:layout_constraintVertical_bias="0.609" />
 
     <TableLayout
+        android:id="@+id/tableLayout2"
         android:layout_width="match_parent"
         android:layout_height="314dp"
         android:background="@drawable/border"
-        app:layout_constraintBottom_toTopOf="@+id/graph"
+        app:layout_constraintBottom_toBottomOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -185,17 +186,18 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/radius"
             android:paddingStart="5dp"
             tools:ignore="RtlSymmetry">
 
             <Button
-                android:textSize="20sp"
                 android:id="@+id/buttonBase"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/button"
-                android:text="@string/usd" />
+                android:text="@string/usd"
+                android:textSize="20sp" />
 
             <HorizontalScrollView
                 android:layout_width="295dp"
@@ -233,16 +235,22 @@
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:outlineAmbientShadowColor="#E41212"
-                android:outlineSpotShadowColor="#B12424"
                 android:rotation="90"
                 app:srcCompat="@drawable/arrow" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
+                app:srcCompat="@drawable/github" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/radius"
             android:paddingStart="5dp"
             tools:ignore="RtlSymmetry">
 
@@ -252,10 +260,7 @@
                 android:layout_height="100dp"
                 android:background="@drawable/button"
                 android:text="@string/rub"
-                android:textColorHint="#5B2020"
-                android:textSize="20sp"
-                app:iconTint="#9F9595"
-                app:rippleColor="#794444" />
+                android:textSize="20sp" />
 
             <HorizontalScrollView
                 android:layout_width="310dp"
@@ -277,21 +282,7 @@
                         android:textSize="50sp" />
                 </LinearLayout>
             </HorizontalScrollView>
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-
-                </LinearLayout>
-            </ScrollView>
         </TableRow>
-
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

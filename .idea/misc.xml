@@ -4,10 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/border.xml" value="0.2635" />
+        <entry key="app/src/main/res/drawable-v24/button.xml" value="0.352" />
         <entry key="app/src/main/res/drawable-v24/radius.xml" value="0.3295" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_item.xml" value="0.35052083333333334" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.3645833333333333" />
+        <entry key="app/src/main/res/layout/graph_fragment.xml" value="0.25" />
       </map>
     </option>
   </component>

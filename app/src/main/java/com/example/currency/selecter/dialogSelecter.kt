@@ -10,9 +10,8 @@ import com.example.currency.R
 class MyDialogFragment(private val base: Boolean = false) : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
-
             val builder = AlertDialog.Builder(it)
-            val bundle = Bundle()
+
             builder.setSingleChoiceItems(
                 R.array.currencyName, -1
             ) { _, item ->
