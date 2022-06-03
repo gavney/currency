@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     private val service = CurrencyApp.create()
     private var currencyData: HashMap<Double, Double> = hashMapOf()
 
+
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
